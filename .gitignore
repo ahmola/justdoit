@@ -1,0 +1,28 @@
+# 빌드 결과물
+/build/
+/target/
+
+# IDE 설정 파일
+*.iml
+*.yml
+.idea/
+*.class
+
+# 로그 파일
+*.log
+
+# OS별 캐시
+.DS_Store
+Thumbs.db
+
+# 환경 설정 파일
+.env
+
+# 테스트 리포트
+/test-output/
+
+# gradle 캐시
+.gradle/
+
+# Maven 캐시 (선택적으로)
+.mvn/

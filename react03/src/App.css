@@ -1,0 +1,32 @@
+.app-container {
+  display: flex;
+  justify-content: space-between; /* 양쪽 끝에 배치 */
+  align-items: flex-start; /* 상단 정렬 */
+  margin-top: 50px;
+  height: 100vh; /* 전체 화면 높이 사용 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+}
+
+.form-container {
+  margin-left: 20px;
+  margin-right: 20px;
+  text-align: center;
+  flex: 1;
+}
+
+.input-url {
+  width: 400px;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.input-title {
+  width: 200px;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+button {
+  padding: 10px 15px;
+  cursor: pointer;
+}

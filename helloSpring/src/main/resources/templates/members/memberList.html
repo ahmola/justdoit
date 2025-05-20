@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<htlm xmlns:th="http://www.thymeleaf.org">
+    <body>
+    <div class="container">
+        <div>
+            <table>
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>이름</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="member : ${members}">
+                    <td th:text="${members.id}"></td>
+                    <td th:text="${members.name}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </body>
+</htlm>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>thymeleafExample04</title>
+</head>
+<body>
+    <h1>Item List print Example</h1>
+
+    <table border="1">
+        <thead>
+        <tr>
+            <td>Number</td>
+            <td>Name</td>
+            <td>Detail</td>
+            <td>price</td>
+            <td>regTime</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="itemDTO, status: ${itemDTOList}">
+            <td th:if="${status.even}" th:text="짝수"></td>
+            <td th:unless="${status.even}" th:text="홀수"></td>
+            <td th:text="${itemDTO.itemName}"></td>
+            <td th:text="${itemDTO.itemDetail}"></td>
+            <td th:text="${itemDTO.price}"></td>
+            <td th:text="${itemDTO.regTime}"></td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>

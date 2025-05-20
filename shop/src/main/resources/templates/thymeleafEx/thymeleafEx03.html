@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ThymeleafExample03</title>
+</head>
+<body>
+    <h1>Item List print Example</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <td>Number</td>
+                <td>Name</td>
+                <td>Detail</td>
+                <td>price</td>
+                <td>RegTime</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="itemDTO, status: ${itemDTOList}">
+                <td th:text="${status.index}"></td>
+                <td th:text="${itemDTO.itemName}"></td>
+                <td th:text="${itemDTO.itemDetail}"></td>
+                <td th:text="${itemDTO.price}"></td>
+                <td th:text="${itemDTO.regTime}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout1}">
+<th:block layout:fragment="script">
+
+    <script th:inline="javascript">
+        $(document).ready(function(){
+            var errorMessage = [[${errorMessage}]];
+            if(errorMessage != null){
+                alert(errorMessage);
+            }
+
+            bindDomEvent();
+        });
+
+        function bindDomEvent(){
+            $(".form-control").on("change", function(){
+                var fileName = $(this).val().split("\\").pop();
+                var fileExt = fileName.substring(fileName.lastIndexOf(".")+1);
+
+                fileExt = fileExt.toLowerCase();
+
+                if(fileExt != "jpg" && fileExt != "jpeg" && fileExt != "gif" && fileExt != "png" && fileExt != "bmp"){
+                    alert("Only Image File is allowed");
+                    return;
+                }
+
+                $(this).siblings(".custom-file-label").html(fileName);
+            });
+        }
+
+    </script>
+
+</th:block>
+
+<th:block layout:fragmen="css">
+    <style>
+        .input-group{
+            margin-bottom : 15px
+        }
+        .img-div{
+            margin-bottom : 10px
+        }
+        .fieldError {
+            color: #bd2130;
+        }
+    </style>
+</th:block>
+
+<div layout:fragment="content">
+
+    <form role="form" method="post" enctype="multipart/form-data" th:object="${GoodsDTO}">
+        <p class="h2">
+            Add Product
+        </p>
+
+        <div class="form-group">
+            <select th:field="*{itemSellStatus}" class="custom-select">
+                <option value="SELL">SELL</option>
+                <option value="SOLD_OUT">SOLD_OUT</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text" >ProductName</span>
+                <input type="text" class="form-control" placeholder="Input Product Name" th:field="*{goodsName}">
+                <div class="invalid-feedback">
+                    Please input Product Name
+                </div>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text" >Product Price</span>
+                <input type="text" class="form-control" placeholder="Product Price" th:field="*{price}">
+                <div class="invalid-feedback">
+                    Please input Product Price.
+                </div>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">StockNumber</span>
+                <input type="text" class="form-control" placeholder="StockNumber" th:field="*{stockNumber}">
+                <div class="invalid-feedback">
+                    Please input StockNumber
+                </div>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Product Details</span>
+                <input type="text" class="form-control" placeholder="Product Details" th:field="*{goodsDetails}">
+                <div class="invalid-feedback">
+                    Please input Product Details
+                </div>
+            </div>
+        </div><br>
+
+        <div th:if="${#lists.isEmpty(GoodsDTO.itemImgDTOList)}">
+            <div class="form-group" th:each="num: ${#numbers.sequence(1,5)}">
+                <input type="file" class="form-control" aria-label="file example" name="itemImgFile">
+                <div class="invalid-feedback">Example invalid form file feedback</div>
+            </div>
+        </div>
+
+        <div th:if="${not #lists.isEmpty(GoodsDTO.itemImgDTOList)}">
+            <div class="form-group" th:each="itemImgDTO, status: ${GoodsDTO.itemImgDTOList}">
+                <input type="file" class="form-control" aria-label="file example" name="itemImgFile">
+                <div class="invalid-feedback">Example invalid form file feedback</div>
+            </div>
+        </div>
+
+        <div th:if="${#strings.isEmpty(GoodsDTO.id)}" style="text-align: center">
+            <button th:formation="@{/admin/goods/new}" type="submit" class="btn btn-primary">Success</button>
+        </div>
+        <div th:unless="${#strings.isEmpty(GoodsDTO.id)}" style="text-align: center">
+            <button th:formaction="@{'/admin/goods/' + ${GoodsDTO.goodsName}}" type="submit" class="btn btn-success">Modify</button>
+        </div>
+    </form>
+</div>
+
+</html>

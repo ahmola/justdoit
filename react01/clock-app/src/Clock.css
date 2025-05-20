@@ -1,0 +1,123 @@
+/* src/Clock.css */
+.clock-container {
+    border-radius: 8px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative; /* 자식 요소인 header의 절대 위치를 위해 설정 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .header {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end; /* 오른쪽 끝에 배치 */
+    position: absolute; /* 시계 컨테이너 내에서 절대 위치 지정 */
+    top: 10px; /* 시계 컨테이너의 상단에 배치 */
+    right: 10px; /* 시계 컨테이너의 오른쪽 끝에 배치 */
+  }
+
+  .login-button, .logout-button {
+    margin-top: 30px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px; /* 버튼 패딩 조정 */
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .logout-button:hover, .login-button:hover {
+    background-color: #0056b3;
+  }
+  
+
+  .city-select {
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    font-size: 20px;
+    outline: none;
+    border-radius: 10px;
+    background-color: slateblue;
+    appearance: none; /* Removes default styling on some browsers */
+    cursor: pointer;
+    width: 150px; /* Adjust width as needed */
+    transition: border-color 0.3s, box-shadow 0.3s;
+    box-shadow: none;
+}
+  
+  
+  h1 {
+    font-size: 4rem;         /* 폰트 크기 (선택 사항) */
+  }
+
+  .alarm-container {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 1px solid #ccc;
+  }
+  
+  .alarm-container input[type="time"],
+.alarm-container input[type="text"] {
+  margin: 10px 0;
+  padding: 8px;
+  width: 80%; /* 너비를 화면에 맞게 조정 */
+  max-width: 300px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+  
+.alarm-container button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  max-width: 150px;
+}
+  
+  .alarm-container button:hover {
+    background-color: #218838;
+  }
+  
+  /* 알람 팝업 스타일 */
+  .alarm-popup {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+  
+  .alarm-popup p {
+    margin-bottom: 15px;
+  }
+  
+  .alarm-popup button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .alarm-popup button:hover {
+    background-color: #0056b3;
+  }

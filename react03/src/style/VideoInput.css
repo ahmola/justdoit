@@ -1,0 +1,18 @@
+.video-input-form {
+    display: flex;
+    justify-content: center; /* 중앙 정렬 */
+    align-items: center; /* 중앙 정렬 */
+    margin-bottom: 20px;
+  }
+  
+.input-url,
+.input-title {
+  width: 200px;
+  padding: 10px;
+  margin: 5px; 
+}
+  
+  button {
+    padding: 10px 15px;
+    cursor: pointer;
+  }

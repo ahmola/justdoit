@@ -1,0 +1,9 @@
+.controls {
+    margin-top: 20px; /* 버튼과 다른 요소 간의 간격 */
+  }
+  
+  button {
+    margin: 5px; /* 버튼 간의 간격 */
+    padding: 10px 15px;
+    cursor: pointer;
+  }

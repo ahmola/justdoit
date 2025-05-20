@@ -1,0 +1,1 @@
+update account set amount=1000.0;
